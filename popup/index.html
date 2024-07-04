@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Settings</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="settings.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Settings</h1>
+    </header>
+
+    <form id="settingsForm">
+      <div class="form-option">
+        <label for="autoSkipIntro">Auto-skip Intro</label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="autoSkipIntro" name="autoSkipIntro" />
+          <label for="autoSkipIntro"></label>
+        </div>
+      </div>
+
+      <div class="form-option">
+        <label for="autoNextEpisode">Auto-Next Episode</label>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="autoNextEpisode" name="autoNextEpisode" />
+          <label for="autoNextEpisode"></label>
+        </div>
+      </div>
+
+      <input class="save-button" type="submit" value="Save" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+@import "./_color.css";
+@import "./_font.css";
+@import "./_checkbox.css";
+
+body {
+  width: 300px; /* Set the width you desire */
+  box-sizing: border-box;
+
+  color: var(--text);
+  background-color: var(--background);
+}
+
+header {
+  width: 100%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+  border-radius: 0.2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-option {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.save-button {
+  margin-top: 0.4rem;
+  padding: 0.4rem 0.4rem;
+  border: 0;
+  color: var(--text);
+  border-radius: 0.2rem;
+  font-family: "Poppins";
+
+  transition: all 300ms;
+  background: var(--secondary);
+}
+
+.save-button:hover {
+  cursor: pointer;
+  background: var(--accent);
+}
