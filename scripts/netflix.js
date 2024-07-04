@@ -1,7 +1,7 @@
 // Init & Config
 console.log("BingeFlix --- Detected Netflix");
 const defaultTimeout = 2; // => seconds until button press (default = 3s)
-const timeInterval = 1000;
+const timeInterval = 500;
 
 let buttonConfigs = [
   {
@@ -45,11 +45,6 @@ async function loadButtonSettings(config, withLogging = false) {
 function _loadEnabled(storageName) {
   const promise = new Promise((resolve, reject) => {
     chrome.storage.sync.get([storageName], (result) => {
-      // On error
-      if (chrome.runtime.lastError) {
-        return reject(chrome.runtime.lastError);
-      }
-      // When data is received
       const setting = Object.values(result)[0];
       resolve(setting);
     });
@@ -72,6 +67,7 @@ function findAndClickButton(config) {
         console.log(`BingeFlix --- Pressed ${config.description} button`);
       } else {
         button.classList.add("bingeflix-target");
+        button.classList.add("bingeflix-explode");
       }
       config.timeout--;
     }
