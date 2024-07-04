@@ -1,3 +1,4 @@
 ### BingeFlix
 
-A simple google chrome extension that skips Netflix intro's and automatically skips to the next episode.
+A simple google chrome extension that skips Netflix intros and automatically skips to the next episode.
+Has a settings menu to customise & disable the plugin.
