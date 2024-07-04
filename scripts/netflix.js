@@ -88,3 +88,7 @@ initButtonConfig();
 setInterval(() => {
   buttonConfigs.forEach((config) => findAndClickButton(config));
 }, timeInterval);
+
+setInterval(() => {
+  buttonConfigs.forEach((config) => loadButtonSettings(config));
+}, 1000 * 60 * 15); // 15 minutes
