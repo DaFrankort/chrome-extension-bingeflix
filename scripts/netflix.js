@@ -85,6 +85,7 @@ function findAndClickButton(config) {
 
 // Main loop
 initButtonConfig();
+
 setInterval(() => {
   buttonConfigs.forEach((config) => findAndClickButton(config));
 }, timeInterval);
