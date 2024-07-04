@@ -45,8 +45,12 @@ async function loadButtonSettings(config, withLogging = false) {
 function _loadEnabled(storageName) {
   const promise = new Promise((resolve, reject) => {
     chrome.storage.sync.get([storageName], (result) => {
-      const setting = Object.values(result)[0];
-      resolve(setting);
+      if (chrome.runtime.lastError) {
+        reject(chrome.runtime.lastError);
+      } else {
+        const setting = Object.values(result)[0];
+        resolve(setting);
+      }
     });
   });
 
