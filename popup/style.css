@@ -1,5 +1,4 @@
-@import "./_color.css";
-@import "./_font.css";
+@import "../global/global.css";
 @import "./_checkbox.css";
 
 body {

@@ -5,7 +5,17 @@
   "version": "1.0",
   "permissions": ["storage"],
   "action": {
-    "default_popup": "./popup/index.html",
+    "default_popup": "popup/index.html",
     "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "css": ["scripts/netflix.css"],
+      "js": ["scripts/netflix.js"],
+      "matches": ["https://www.netflix.com/watch/*"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
   }
 }
