@@ -10,11 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Save settings
-  settingsForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+  function saveSettings() {
     chrome.storage.sync.set({
       autoSkipIntro: autoSkipIntroCheckbox.checked,
       autoNextEpisode: autoNextEpisodeCheckbox.checked,
     });
+  }
+
+  autoSkipIntroCheckbox.addEventListener("change", () => {
+    saveSettings();
+  });
+
+  autoNextEpisodeCheckbox.addEventListener("change", () => {
+    saveSettings();
   });
 });
