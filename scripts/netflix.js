@@ -74,6 +74,9 @@ function findAndClickButton(config) {
         button.classList.add("bingeflix-explode");
       }
       config.timeout--;
+    } else {
+      button.classList.remove("bingeflix-target");
+      button.classList.remove("bingeflix-explode");
     }
   } else {
     config.timeout = defaultTimeout;
@@ -85,9 +88,3 @@ initButtonConfig();
 setInterval(() => {
   buttonConfigs.forEach((config) => findAndClickButton(config));
 }, timeInterval);
-
-setInterval(() => {
-  console.log("reloading settings");
-  buttonConfigs.forEach((config) => loadButtonSettings(config));
-  console.log(buttonConfigs);
-}, 60000);
