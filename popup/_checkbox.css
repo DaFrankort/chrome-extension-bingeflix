@@ -10,13 +10,13 @@ https://codepen.io/mburnette/pen/LxNxNg
 }
 
 .checkbox-wrapper label {
-  --size: 3rem;
+  --size: 2.2rem;
 
   transition: background 300ms;
   cursor: pointer;
   width: var(--size);
   height: calc(var(--size) / 2);
-  background: var(--text);
+  background: rgba(53, 64, 94, 0.5);
   display: block;
   border-radius: 100px;
   position: relative;
@@ -29,13 +29,13 @@ https://codepen.io/mburnette/pen/LxNxNg
   left: 2.5%;
   width: calc(50% - 5%);
   height: calc(100% - 11%);
-  background: var(--background);
+  background: var(--text);
   border-radius: 90px;
   transition: 0.3s;
 }
 
 .checkbox-wrapper input:checked + label {
-  background: var(--secondary);
+  background: var(--accent);
 }
 
 .checkbox-wrapper input:checked + label:after {

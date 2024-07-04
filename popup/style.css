@@ -12,7 +12,7 @@ body {
 
 header {
   width: 100%;
-  background: var(--primary);
+  background: var(--secondary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,6 +26,10 @@ form {
   flex-direction: column;
 }
 
+svg {
+  fill: var(--text);
+}
+
 .form-option {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -35,19 +39,24 @@ form {
   margin-bottom: 0.2rem;
 }
 
+.form-option label {
+  cursor: pointer;
+}
+
 .save-button {
   margin-top: 0.4rem;
   padding: 0.4rem 0.4rem;
   border: 0;
-  color: var(--text);
   border-radius: 0.2rem;
   font-family: "Poppins";
 
   transition: all 300ms;
   background: var(--secondary);
+  color: var(--text);
 }
 
 .save-button:hover {
   cursor: pointer;
   background: var(--accent);
+  color: var(--background);
 }
