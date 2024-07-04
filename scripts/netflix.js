@@ -18,6 +18,13 @@ let buttonConfigs = [
     syncStorageName: "autoNextEpisode",
     enabled: true,
   },
+  {
+    dataUia: "interrupt-autoplay-continue",
+    timeout: defaultTimeout,
+    description: "Continue Playing",
+    syncStorageName: "autoNextEpisode", // NO CUSTOM SETTING YET
+    enabled: true,
+  },
 ];
 
 // Functions
