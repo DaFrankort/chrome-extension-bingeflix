@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load
   chrome.storage.sync.get(["autoSkipIntro", "autoNextEpisode"], (result) => {
-    autoSkipIntroCheckbox.checked = result.autoSkipIntro || false;
-    autoNextEpisodeCheckbox.checked = result.autoNextEpisode || false;
+    autoSkipIntroCheckbox.checked = result.autoSkipIntro || true;
+    autoNextEpisodeCheckbox.checked = result.autoNextEpisode || true;
   });
 
   function saveSettings() {
@@ -25,12 +25,21 @@ document.addEventListener("DOMContentLoaded", () => {
     saveSettings();
   });
 
+  autoSkipIntroCheckbox.addEventListener("click", () => {
+    saveSettings();
+  });
+
+  autoNextEpisodeCheckbox.addEventListener("click", () => {
+    saveSettings();
+  });
+
   /*
     ### DISABLE/ENABLE ALL ###
   */
   const disableAllButton = document.getElementById("disableAllButton");
   const enableAllButton = document.getElementById("enableAllButton");
-  switchEnableDisableButton();
+  disableAllButton.hidden = false;
+  enableAllButton.hidden = true;
 
   function setAllTo(value) {
     if (typeof value === "boolean") {
