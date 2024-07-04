@@ -1,15 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /*
+    ### CHECKBOXES ###
+  */
   const settingsForm = document.getElementById("settingsForm");
   const autoSkipIntroCheckbox = document.getElementById("autoSkipIntro");
   const autoNextEpisodeCheckbox = document.getElementById("autoNextEpisode");
 
-  // Load settings
+  // Load
   chrome.storage.sync.get(["autoSkipIntro", "autoNextEpisode"], (result) => {
     autoSkipIntroCheckbox.checked = result.autoSkipIntro || false;
     autoNextEpisodeCheckbox.checked = result.autoNextEpisode || false;
   });
 
-  // Save settings
   function saveSettings() {
     chrome.storage.sync.set({
       autoSkipIntro: autoSkipIntroCheckbox.checked,
@@ -19,5 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   settingsForm.addEventListener("click", () => {
     saveSettings();
+  });
+
+  /*
+    ### DISABLE ALL ###
+  */
+  const disableAllButton = document.getElementById("disableAllButton");
+  function disableAll() {
+    autoSkipIntroCheckbox.checked = false;
+    autoNextEpisodeCheckbox.checked = false;
+    saveSettings();
+  }
+
+  disableAllButton.addEventListener("click", () => {
+    disableAll();
   });
 });

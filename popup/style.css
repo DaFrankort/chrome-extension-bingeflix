@@ -42,19 +42,21 @@ svg {
   cursor: pointer;
 }
 
-.save-button {
-  margin-top: 0.4rem;
+button {
+  margin-top: -0.4rem;
   padding: 0.4rem 0.4rem;
   border: 0;
   border-radius: 0.2rem;
   font-family: "Poppins";
+
+  width: 100%;
 
   transition: all 300ms;
   background: var(--secondary);
   color: var(--text);
 }
 
-.save-button:hover {
+button:hover {
   cursor: pointer;
   background: var(--accent);
   color: var(--background);
