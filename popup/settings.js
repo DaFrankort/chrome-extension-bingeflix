@@ -17,11 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  autoSkipIntroCheckbox.addEventListener("change", () => {
-    saveSettings();
-  });
-
-  autoNextEpisodeCheckbox.addEventListener("change", () => {
+  settingsForm.addEventListener("click", () => {
     saveSettings();
   });
 });
