@@ -43,7 +43,7 @@ svg {
 }
 
 button {
-  margin-top: -0.4rem;
+  margin-bottom: 0.2rem;
   padding: 0.4rem 0.4rem;
   border: 0;
   border-radius: 0.2rem;
@@ -60,4 +60,8 @@ button:hover {
   cursor: pointer;
   background: var(--accent);
   color: var(--background);
+}
+
+button#disableAllButton:hover {
+  background: var(--warning);
 }

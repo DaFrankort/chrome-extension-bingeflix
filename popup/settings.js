@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
       autoSkipIntro: autoSkipIntroCheckbox.checked,
       autoNextEpisode: autoNextEpisodeCheckbox.checked,
     });
+
+    switchEnableDisableButton();
   }
 
   settingsForm.addEventListener("click", () => {
@@ -24,16 +26,35 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /*
-    ### DISABLE ALL ###
+    ### DISABLE/ENABLE ALL ###
   */
   const disableAllButton = document.getElementById("disableAllButton");
-  function disableAll() {
-    autoSkipIntroCheckbox.checked = false;
-    autoNextEpisodeCheckbox.checked = false;
-    saveSettings();
+  const enableAllButton = document.getElementById("enableAllButton");
+  switchEnableDisableButton();
+
+  function setAllTo(value) {
+    if (typeof value === "boolean") {
+      autoSkipIntroCheckbox.checked = value;
+      autoNextEpisodeCheckbox.checked = value;
+      saveSettings();
+    }
   }
 
   disableAllButton.addEventListener("click", () => {
-    disableAll();
+    setAllTo(false);
   });
+
+  enableAllButton.addEventListener("click", () => {
+    setAllTo(true);
+  });
+
+  function switchEnableDisableButton() {
+    if (!autoSkipIntroCheckbox.checked && !autoNextEpisodeCheckbox.checked) {
+      disableAllButton.hidden = true;
+      enableAllButton.hidden = false;
+    } else {
+      disableAllButton.hidden = false;
+      enableAllButton.hidden = true;
+    }
+  }
 });
