@@ -19,6 +19,13 @@ let buttonConfigs = [
     enabled: true,
   },
   {
+    dataUia: "next-episode-seamless-button-draining",
+    timeout: defaultTimeout,
+    description: "Next Episode",
+    syncStorageName: "autoNextEpisode",
+    enabled: true,
+  },
+  {
     dataUia: "interrupt-autoplay-continue",
     timeout: defaultTimeout,
     description: "Continue Playing",
