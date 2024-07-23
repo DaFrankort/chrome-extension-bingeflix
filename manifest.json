@@ -12,7 +12,7 @@
     {
       "css": ["scripts/netflix.css"],
       "js": ["scripts/netflix.js"],
-      "matches": ["https://www.netflix.com/watch/*"]
+      "matches": ["https://www.netflix.com/*"]
     }
   ],
   "content_security_policy": {
