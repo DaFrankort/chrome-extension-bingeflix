@@ -70,37 +70,41 @@ class Detector {
     const queryName = this.buildQuery(buttonConfig.className);
     const button = document.querySelector(queryName);
 
-    if (button) {
-      this.loadButtonSettings(buttonConfig);
-      if (buttonConfig.enabled) {
-        if (buttonConfig.timeout <= 0) {
-          button.focus();
-          // Use MouseEvent to trick youtube buttons
-          const clickEvent = new MouseEvent("click", {
-            view: window,
-            bubbles: true,
-            cancelable: true,
-          });
-          button.dispatchEvent(clickEvent);
-
-          console.log(
-            `BingeFlix --- Pressed ${buttonConfig.description} button`
-          );
-        } else {
-          button.classList.add("bingeflix-target");
-          button.classList.add("bingeflix-explode");
-        }
-        buttonConfig.timeout--;
-      } else {
-        button.classList.remove("bingeflix-target");
-        button.classList.remove("bingeflix-explode");
-      }
-    } else {
+    if (!button) {
       buttonConfig.timeout = this.defaultTimeout;
+      return;
     }
+
+    this.loadButtonSettings(buttonConfig);
+    if (!buttonConfig.enabled) {
+      button.classList.remove("bingeflix-target");
+      button.classList.remove("bingeflix-explode");
+      return;
+    }
+
+    if (buttonConfig.timeout > 0) {
+      button.classList.add("bingeflix-target");
+      button.classList.add("bingeflix-explode");
+      buttonConfig.timeout--;
+      return;
+    }
+
+    this.focusAndClickButton(button);
+
+    console.log(`BingeFlix --- Pressed ${buttonConfig.description} button`);
   }
 
   buildQuery(className) {
     return this.queryFormat.replace("${className}", className);
+  }
+
+  focusAndClickButton(button) {
+    button.focus();
+    const clickEvent = new MouseEvent("click", {
+      view: window,
+      bubbles: true,
+      cancelable: true,
+    });
+    button.dispatchEvent(clickEvent);
   }
 }
