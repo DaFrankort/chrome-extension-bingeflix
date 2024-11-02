@@ -11,7 +11,11 @@
   "content_scripts": [
     {
       "css": ["scripts/netflix.css"],
-      "js": ["scripts/netflix.js"],
+      "js": [
+        "scripts/classes/ButtonConfigClass.js",
+        "scripts/classes/DetectorClass.js",
+        "scripts/netflix.js"
+      ],
       "matches": ["https://www.netflix.com/*"]
     }
   ],

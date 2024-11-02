@@ -4,35 +4,33 @@ const defaultTimeout = 2; // => seconds until button press (default = 3s)
 const timeInterval = 500;
 
 let buttonConfigs = [
-  {
-    dataUia: "player-skip-intro",
-    timeout: defaultTimeout,
-    description: "Skip Intro",
-    syncStorageName: "autoSkipIntro",
-    enabled: true,
-  },
-  {
-    dataUia: "next-episode-seamless-button",
-    timeout: defaultTimeout,
-    description: "Next Episode",
-    syncStorageName: "autoNextEpisode",
-    enabled: true,
-  },
-  {
-    dataUia: "next-episode-seamless-button-draining",
-    timeout: defaultTimeout,
-    description: "Next Episode",
-    syncStorageName: "autoNextEpisode",
-    enabled: true,
-  },
-  {
-    dataUia: "interrupt-autoplay-continue",
-    timeout: defaultTimeout,
-    description: "Continue Playing",
-    syncStorageName: "autoNextEpisode", // NO CUSTOM SETTING YET
-    enabled: true,
-  },
+  new ButtonConfig(
+    "player-skip-intro",
+    defaultTimeout,
+    "Skip Intro",
+    "autoSkipIntro"
+  ),
+  new ButtonConfig(
+    "next-episode-seamless-button",
+    defaultTimeout,
+    "Next Episode",
+    "autoNextEpisode"
+  ),
+  new ButtonConfig(
+    "next-episode-seamless-button-draining",
+    defaultTimeout,
+    "Next Episode",
+    "autoNextEpisode"
+  ),
+  new ButtonConfig(
+    "interrupt-autoplay-continue",
+    defaultTimeout,
+    "Continue Playing",
+    "autoNextEpisode" // No custom setting yet
+  ),
 ];
+
+console.log(buttonConfigs);
 
 // Functions
 function initButtonConfig() {
@@ -74,7 +72,7 @@ function _loadEnabled(storageName) {
 }
 
 function findAndClickButton(config) {
-  const queryName = `button[data-uia="${config.dataUia}"]`;
+  const queryName = `button[data-uia="${config.className}"]`;
   const button = document.querySelector(queryName);
 
   if (button) {
