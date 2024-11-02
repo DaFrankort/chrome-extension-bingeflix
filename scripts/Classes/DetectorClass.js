@@ -74,7 +74,15 @@ class Detector {
       this.loadButtonSettings(buttonConfig);
       if (buttonConfig.enabled) {
         if (buttonConfig.timeout <= 0) {
-          button.click();
+          button.focus();
+          // Use MouseEvent to trick youtube buttons
+          const clickEvent = new MouseEvent("click", {
+            view: window,
+            bubbles: true,
+            cancelable: true,
+          });
+          button.dispatchEvent(clickEvent);
+
           console.log(
             `BingeFlix --- Pressed ${buttonConfig.description} button`
           );
