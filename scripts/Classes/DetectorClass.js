@@ -1,8 +1,8 @@
 class Detector {
-  constructor(buttonConfigs, queryFormat) {
-    this.defaultTimeout = 2;
+  constructor(buttonConfigs, defaultTimeout, queryFormat) {
+    this.defaultTimeout = defaultTimeout;
     this.buttonConfigs = buttonConfigs;
-    this.queryFormat = 'button[data-uia="${className}"]'; // example, only works for netflix
+    this.queryFormat = queryFormat; // Requires ${className} inside string, will be replaced with correct value
 
     // Initialise settings
     this.initButtonConfig();

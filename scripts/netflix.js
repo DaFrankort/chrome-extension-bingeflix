@@ -29,4 +29,4 @@ let buttonConfigs = [
   ),
 ];
 
-new Detector(buttonConfigs, defaultTimeout);
+new Detector(buttonConfigs, defaultTimeout, 'button[data-uia="${className}"]');
