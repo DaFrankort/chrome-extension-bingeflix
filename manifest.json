@@ -17,14 +17,6 @@
         "scripts/netflix.js"
       ],
       "matches": ["https://www.netflix.com/*"]
-    },
-    {
-      "js": [
-        "scripts/classes/ButtonConfigClass.js",
-        "scripts/classes/DetectorClass.js",
-        "scripts/youtube.js"
-      ],
-      "matches": ["https://www.youtube.com/*"]
     }
   ],
   "content_security_policy": {
